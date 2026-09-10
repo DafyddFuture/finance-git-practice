@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 df = pd.read_csv("data/monthly_finance.csv")
 
@@ -30,3 +31,10 @@ print("Best Month:", best_month["Month"])
 worst_month = df.loc[df["Profit"].idxmin()]
 
 print("Worst Month:", worst_month["Month"])
+
+plt.plot(df["Month"], df["Profit"], marker="o")
+plt.title("Monthly Profit")
+plt.xlabel("Month")
+plt.ylabel("Profit (£)")
+plt.xticks(rotation=45)
+plt.show()
